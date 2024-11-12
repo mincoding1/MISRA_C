@@ -9,7 +9,7 @@ Rule 9.1 The value  of an object with automatic storage duration shall not be re
 
 참고: 자동 객체의 명시적 초기화가 무시될 수 있는 경우가 있습니다. goto 또는 switch 문을 사용하여 특정 레이블로 점프할 때 이러한 현상이 발생할 수 있습니다. 이 경우 객체가 선언되긴 하지만, 명시적 초기화는 무시됩니다.
 
-```
+```c
 void f(bool_t b, uint16_t *p) {
     if (b) {
         *p = 3U;
@@ -27,7 +27,7 @@ void g(void) {
 위 코드에서 함수 f는 b가 false일 때 u에 값을 할당하지 않습니다. 따라서 u는 초기화되지 않은 값을 가지며, u == 3U 조건문은 비준수입니다.
 
 다음의 C99 비준수 예제에서, goto 문이 x의 초기화를 건너뜁니다.
-```
+```c
 {
     goto L1;
     uint16_t x = 10u;
