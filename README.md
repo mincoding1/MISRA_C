@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9bcd478e-8d47-4b7e-8f1e-dc32c0cb926a)# MISRA C 2012
+
 ### MISRA C 2012
 - 2013년 3월에 발표
 - 총 159개 Rule
