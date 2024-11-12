@@ -37,3 +37,50 @@ L1:
 
 ```
 여기서 goto 문이 x의 선언을 우회하여 초기화가 이루어지지 않고 x = x + 1u로 사용되기 때문에 비준수입니다. 참고: 이 예제는 규칙 15.1도 위반합니다.
+
+### 원문
+```
+Rule 9.1 The value  of an object with automatic storage duration shall not be read before it has been set
+
+[Amplification]
+For the purposes of this rule, an array element or structure member shall be considered as a discrete 
+object.
+
+[Rationale]
+According to The Standard, objects with static storage duration are automatically initialized to zero 
+unless initialized explicitly. Objects with automatic storage duration are not automatically initialized 
+and can therefore have indeterminate values. 
+
+Note: it is sometimes possible for the explicit initialization of an automatic object to be ignored. This 
+will happen when a jump to a label using a goto or switch statement “bypasses” the declaration of the 
+object; the object will be declared as expected but any explicit initialization will be ignored.
+
+[Example]
+ void  f ( bool_t b, uint16_t *p )
+ {
+  if ( b )
+  {
+    *p = 3U;
+  }
+ }
+ void g ( void )
+ {
+  uint16_t u;
+  f ( false, &u );
+  if ( u == 3U )
+  {
+    /* Non-compliant - u has not been assigned a value */
+  }
+ }
+
+ In the following non-compliant C99 example, the goto statement jumps past the initialization of x.
+
+ Note: This example is also non-compliant with Rule 15.1.
+ {
+  goto L1;
+  uint16_t x = 10u;
+ L1:
+  x = x + 1u;   /* Non-compliant - x has not been assigned a value */
+ }
+
+```
