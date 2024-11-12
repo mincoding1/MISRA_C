@@ -1,2 +1,2 @@
-# MISRA_C
+# MISRA C 2012
 MISRA_C 해석
