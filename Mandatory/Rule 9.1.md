@@ -1,5 +1,5 @@
 ## 규칙 9.1 자동 저장 기간을 가진 객체의 값은 설정되기 전에 읽어서는 안 됩니다.
-## Rule 9.1 The value  of an object with automatic storage duration shall not be read before it has been set
+(Rule 9.1 The value  of an object with automatic storage duration shall not be read before it has been set)
 
 ### [추가 설명]
 이 규칙에서 배열 요소나 구조체 멤버는 개별 객체로 간주해야 합니다.
